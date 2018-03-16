@@ -53,6 +53,17 @@ class: left, top
 ---
 class: left, top
 
+# .slide-header[Overview]
+
+## WASM is not trying to replace JS
+
+![rust loves js](img/lin_rustjs.png)
+
+### Our goal is that WebAssembly work seamlessly with JS in workflows that developers already use
+
+---
+class: left, top
+
 # .slide-header[A Brief Intro to Rust]
 ## **Rust** is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 .pipeline[![rustwasm pipeline](img/ferris.gif)]
@@ -257,7 +268,83 @@ class: left, top
 
 # https://doc.rust-lang.org/
 
+---
+class: left, top
 
+# .slide-header[Writing A RustWASM Crate]
+
+## Let's code together!
+
+### View the code for this exercise [here](https://github.com/steveklabnik/booster2018/tree/gh-pages/exercises/part2/hello-wasm/crate)
+
+---
+class: left, top
+
+# .slide-header[wasm-bindgen]
+
+### JavaScript has all sorts of objects!
+## But WASM only has Integers and Floating Point Numbers.
+
+---
+class: left, top
+
+# .slide-header[wasm-bindgen]
+
+Enable WASM to pass objects to JavaScript.
+
+## `cargo install wasm-bindgen`
+
+### [github repo](https://github.com/alexcrichton/wasm-bindgen)
+![wasm-bindgen](img/lin_wasmbindgen.png)
+
+.footnote[Lin Clark. https://hacks.mozilla.org/2018/03/making-webassembly-better-for-rust-for-all-languages/]
+
+---
+class: left, top
+
+# .slide-header[wasm-pack]
+
+Compile and package your WASM package for npm.
+
+## `cargo install wasm-pack`
+
+### [github repo](https://github.com/ashleygwilliams/wasm-pack)
+![wasm-pack](img/lin_wasmpack.png)
+
+.footnote[Lin Clark. https://hacks.mozilla.org/2018/03/making-webassembly-better-for-rust-for-all-languages/]
+
+---
+class: left, top
+
+# .slide-header[wasm-pack]
+
+# [wasm-pack tutorial](https://github.com/mgattozzi/rust-wasm/tree/10f54d8023b2c8d2ea0d680c753cd26de5baee6d/src/wasm-pack)
+
+### Comment on the PR [here](https://github.com/rust-lang-nursery/rust-wasm/pull/86)!
+
+---
+class: left, top
+
+# .slide-header[Hello WASM! website]
+
+## Bundlers are prepared to consume WASM already!
+### Thanks to ESModules!
+
+.bundle[![bundle](img/lin_bundle.png)]
+
+.footnote[Lin Clark. https://hacks.mozilla.org/2018/03/making-webassembly-better-for-rust-for-all-languages/]
+
+---
+class: left, top
+
+# .slide-header[Hello WASM! website]
+
+## Let's code together!
+
+### View the code for this exercise [here](https://github.com/steveklabnik/booster2018/tree/gh-pages/exercises/part2/hello-wasm/website)
+
+
+.footnote[Lin Clark. https://hacks.mozilla.org/2018/03/making-webassembly-better-for-rust-for-all-languages/]
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
