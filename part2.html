@@ -90,12 +90,12 @@ class: left, top
 
 ## Setting up a Project
 
-We're going to be making a *library* project; the other option is a *binary* or application.
+There are 2 types of projects: **library** and **binary**.
 
 `cargo new` will create a skeleton project setup for you.
 
 1. `cd` to a directory where you like to store code
-2. `cargo new hello-wasm`
+2. `cargo new hello-wasm --bin`
 3. `cd hello-wasm`
 
 ---
@@ -107,7 +107,7 @@ class: left, top
 
 - `Cargo.toml`: metadata about your project and its dependencies
 - `.gitignore`: ignores compiled files built by Rust
-- `src/lib.rs`: where your Rust code goes
+- `src/main.rs`: where your Rust code goes
 
 ---
 class: left, top
@@ -134,6 +134,59 @@ crate-type = ["cdylib"]
 [dependencies]
 wasm-bindgen = "0.1.0"
 ```
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## `src/main.rs`
+
+```rust
+fn main() {
+    println!("Hello, Rust!");
+}
+```
+
+Every binary Rust application must have a `main` function.
+
+To run this, type:
+# `cargo run`
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## Types
+
+Rust is strongly, statically typed. Common fundamental types are:
+
+- `u32`: unsigned 32-bit integer
+- `i32`: signed 32-bit integer
+- `f64`: floating point number
+- `String` and/or `&str`: strings
+- `bool`: a boolean
+
+---
+class: left, top, string
+
+# .slide-header[A Brief Intro to Rust]
+
+## A Tale of Two Strings
+
+Strings are actually quite complicated! Dynamic languages hide this, but *sadly* Rust doesn't.
+In the beginning strings in Rust can feel difficult :(
+
+### `String`
+
+* Full featured with convenience methods
+* Can create with either:
+  * `something.to_string()` OR `String::from("string slice")`
+
+### `&str`
+
+* Pronounced "and stir" or "string slice"
+* Hardcoded strings are `&str`s
 
 ---
 class: left, top
@@ -160,25 +213,40 @@ println!("Hi, {}! You are ACTUALLY {} years old.", name, age);
 ```
 
 ---
-class: left, top, string
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+## Functions
+
+```rust
+// In Rust:
+fn greet(name: &str) -> String {
+    format!("Hello {}!", name)
+}
+
+fn main() {
+    println!(greet("Rust"));
+}
+```
+
+```js
+// In JavaScript:
+function greet(name) {
+  return `Hello ${name}!`
+}
+console.log(greet("Rust"))
+```
+
+---
+class: left, top
 
 # .slide-header[A Brief Intro to Rust]
 
-## A Tale of Two Strings
+## Dependencies
 
-Strings are actually quite complicated! Dynamic languages hide this, but *sadly* Rust doesn't.
-In the beginning strings in Rust can feel difficult :(
-
-### `String`
-
-* Full featured with convenience methods
-* Can create with either:
-  * `something.to_string()` OR `String::from("string slice")`
-
-### `&str`
-
-* Pronounced "and stir" or "string slice"
-* Hardcoded strings are `&str`s
+1. Add the dependency to your `Cargo.toml`.
+2. Add `extern crate mydep;` to your `main.rs` or `lib.rs`.
+3. Optionally, add `use::mydep` to bring the deps exports into namespace.
 
 ---
 class: left, top
